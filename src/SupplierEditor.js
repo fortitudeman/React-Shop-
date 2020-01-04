@@ -17,7 +17,7 @@ export class SupplierEditor extends Component {
         this.setState(state=>
             state.formData[ev.target.name]=
                 ev.target.name==="products"?
-                ev.target.value.splite(","):ev.target.value);
+                ev.target.value.split(","):ev.target.value);
     }
     handleClick=()=>{
         this.props.saveCallback(
@@ -45,7 +45,7 @@ export class SupplierEditor extends Component {
             </div>
             <div className="form-group">
                 <label>Products</label>
-                <input className="form-control" name="name"
+                <input className="form-control" name="products"
                    
                     value={this.state.formData.products}
                     onChange={this.handleChange}/>

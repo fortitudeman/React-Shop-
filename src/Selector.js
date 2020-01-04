@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export class Selector extends Component {
     constructor(props) {
-        console.log(React.Children.toArray(props.children))
+      
         super(props);
         this.state = {
             selection: React.Children.toArray(props.children)[0].props.name

@@ -1,8 +1,23 @@
 import React,{Component} from 'react';
 import { SupplierEditor} from './SupplierEditor';
 import {SupplierTable} from './SupplierTable';
+import { connect } from 'react-redux';
+import { saveSupplier, deleteSupplier } from './Store'
 
-export class SupplierDisplay extends Component {
+const mapStateToProps = (storeData) => ({
+    suppliers: storeData.suppliers
+})
+
+const mapDispatchToProps = {
+    saveCallback: saveSupplier,
+    deleteCallback: deleteSupplier
+}
+
+const connectFunction = connect(mapStateToProps, mapDispatchToProps);
+
+
+export const SupplierDisplay = connectFunction(
+    class extends Component {
 
     constructor(props) {
         super(props);
@@ -28,7 +43,7 @@ export class SupplierDisplay extends Component {
         if(this.state.showEditor){
             return <SupplierEditor 
                 key={this.state.selected.id||-1}
-                supplier={this.startEditing.selected}
+                supplier={this.state.selected}
                 saveCallback={this.saveSupplier}
                 cancelCallback={this.cancelEditing}
             />
@@ -46,4 +61,4 @@ export class SupplierDisplay extends Component {
             </div>
         }
     }
-}
+})

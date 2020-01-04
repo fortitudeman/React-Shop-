@@ -15,7 +15,7 @@ export class SupplierTableRow extends Component {
                     Edit
                 </button>
                 <button className="btn btn-sm btn-danger m-1"
-                     onClick={()=>this.props.editCallback(s)}>
+                     onClick={()=>this.props.deleteCallback(s)}>
                      Delete
                  </button>
             </td>
