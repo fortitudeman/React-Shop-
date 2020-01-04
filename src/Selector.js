@@ -17,21 +17,21 @@ export class Selector extends Component {
         <div className="row">
             <div className="col-2">
             { React.Children.map(this.props.children, c =>
-            <button
-            name={ c.props.name }
-            onClick={ this.setSelection }
-            className={`btn btn-block m-2
-            ${this.state.selection === c.props.name
-            ? "btn-primary active": "btn-secondary"}`}>
-            { c.props.name }
-            </button>
-            )}
-            </div>
-            <div className="col">
-            {
-            React.Children.toArray(this.props.children)
-            .filter(c => c.props.name === this.state.selection)
-            }
+                <button
+                    name={ c.props.name }
+                    onClick={ this.setSelection }
+                    className={`btn btn-block m-2
+                    ${this.state.selection === c.props.name
+                    ? "btn-primary active": "btn-secondary"}`}>
+                { c.props.name }
+                </button>
+                )}
+                </div>
+                <div className="col">
+                {
+                    React.Children.toArray(this.props.children)
+                    .filter(c => c.props.name === this.state.selection)
+                }
             </div>
         </div>
         </div>
